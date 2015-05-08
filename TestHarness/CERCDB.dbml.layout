@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.875" name="CERCDB">
+  <DataContextMoniker Name="/CERCDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="991acba0-b860-4e06-bfb0-b6feeb13ed5b" absoluteBounds="0.5, 0.75, 2, 7.5399397786458326">
+      <DataClassMoniker Name="/CERCDBDataContext/vDamageCaseQuery" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d3e8f08c-3ae9-4b5e-840a-cb66d3127312" absoluteBounds="0.51499999999999968, 1.21, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="926e9530-f20c-49b1-9f5e-e9647159d305" absoluteBounds="5, 2.625, 2, 6.0015283203125">
+      <DataClassMoniker Name="/CERCDBDataContext/Case_Master" />
+      <nestedChildShapes>
+        <elementListCompartment Id="819b81b2-f283-47b2-bf52-5c44b399f429" absoluteBounds="5.015, 3.085, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

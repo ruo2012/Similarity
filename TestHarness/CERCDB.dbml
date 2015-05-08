@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NRDAR" Class="CERCDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=IGSKIACWVMGS014;Initial Catalog=NRDAR;Integrated Security=True" SettingsObjectName="TestHarness.Properties.Settings" SettingsPropertyName="NRDARConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vDamageCaseQuery" Member="vDamageCaseQueries">
+    <Type Name="vDamageCaseQuery">
+      <Column Name="CaseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AOUniqueID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LocationDesc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ZipCd" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DecLatVa" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DecLongVa" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FWSRegionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEDFacility" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AOBureau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IncidentDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BeginDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StateName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IncidentType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="EnteredUID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="EnteredDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedUID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ModifiedDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Displayed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Settled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Aliases" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Authorities" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Trustees" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contaminants" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ResponsibleParties" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NaturalResources" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TrusteeResources" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Queryable" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Case_Master" Member="Case_Masters">
+    <Type Name="Case_Master">
+      <Column Name="CaseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AOUniqueID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LocationDesc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="StateCdID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ZipCd" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DecLatVa" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DecLongVa" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FWSRegionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEDFacility" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AOBureau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IncidentDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BeginDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IncidentTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="EnteredUID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="EnteredDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedUID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ModifiedDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Displayed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Settled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
