@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Similarity.Processing
 {
-    public static class TextHandler
+    public static class WordCount
     {
         /// <summary>
         /// A static method that gets a unique word count for each of the words in a string
         /// </summary>
         /// <param name="str">The String that will be broken into a distinct word count</param>
         /// <returns>A distinct word count in the form of a dictionary(word, count)</returns>
-        public static Dictionary<string,int> GetWordCount(this string str)
+        public static Dictionary<string,double> GetWordCount(this string str)
         {
             //Check to see that the user pased an actual string
             //If they didn't return them an empty dictionary
-            if (String.IsNullOrEmpty(str)) return new Dictionary<string, int>();
+            if (String.IsNullOrEmpty(str)) return new Dictionary<string, double>();
             //Create the stemmer used to impliment Porters Algorithm for stemming strings
             //The purpose of this is to take words like lovely and convert them to love,
             //This helps attain more accurate results
@@ -26,8 +26,10 @@ namespace Similarity.Processing
             //A dummy double used as the output for the Double.TryParse
             //This eliminates numbers from the 
             Double num;
+            Regex rgx = new Regex("[^a-zA-Z0-9]");
+            str = rgx.Replace(str, " ");
             //Split the words first removing _ characters
-            return (new Regex(@"\w+")).Matches(str.Replace("_", ""))
+            return (new Regex(@"\w(?<!\d)[\w'-]*")).Matches(str)
                 //Cast them to an enumerable of the matches.
                 .Cast<Match>()
                 //Convert the strings to lower, Stem them for consistency and select them.
@@ -41,14 +43,14 @@ namespace Similarity.Processing
                 //Remove all items that are found in the stop words dictionary, or are simply numbers
                 .Where(p => !StopWords.ContainsKey(p.Word) && !Double.TryParse(p.Word, out num))
                 //Convert this list to a dictionary where the word is the key and the number of its occurences is the value
-                .ToDictionary(p => p.Word, p => p.Count);
+                .ToDictionary(p => p.Word, p => Convert.ToDouble(p.Count));
         }
 
         #region Stop Words
         /// <summary>
         /// A dictionary of Stop Words used to prune the String of non pertinent words
         /// </summary>
-        public static Dictionary<string, bool> StopWords = new Dictionary<string, bool>
+        private static Dictionary<string, bool> StopWords = new Dictionary<string, bool>
         {
 	        { "a", true },
 	        { "about", true },

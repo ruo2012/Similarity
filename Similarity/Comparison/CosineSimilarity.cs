@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Similarity.Comparison_Logic
+namespace Similarity.Comparison
 {
     public static class CosineSimilarity
     {
@@ -14,9 +14,9 @@ namespace Similarity.Comparison_Logic
         /// <param name="item">The first item</param>
         /// <param name="ItemToCompare">The Second Item</param>
         /// <returns>The Score of the Cosine Similarity (-1 to 1) 1 being a perfect match.</returns>
-        public static Double CosineCoefficient(this Iitem item, Iitem ItemToCompare)
+        public static Double CosineCoefficient(this ComparisonItem item, ComparisonItem ItemToCompare)
         {
-            return CosineCoefficient(ComparisonGenerator(item.AttributeCount, ItemToCompare.AttributeCount));
+            return CosineCoefficient(ComparisonGenerator(item.Attributes, ItemToCompare.Attributes));
         }
         /// <summary>
         /// Takes two Word Count Dictionaries and creates a List of Tuples(int, int).
@@ -29,10 +29,10 @@ namespace Similarity.Comparison_Logic
         /// <param name="val1">The WordCount Dictionary from TextItem 1</param>
         /// <param name="val2">The WordCount Dictionary from TextItem 2</param>
         /// <returns>The List of points consisting of the counts from bost lists. Used for Comparison. </returns>
-        private static List<Tuple<int, int>> ComparisonGenerator(Dictionary<string, int> val1, Dictionary<string, int> val2)
+        private static List<Tuple<double, double>> ComparisonGenerator(Dictionary<string, double> val1, Dictionary<string, double> val2)
         {
             //Create a new List to store the results
-            var result = new List<Tuple<int, int>>();
+            var result = new List<Tuple<double, double>>();
             //Go through each word in val1
             foreach (var word in val1)
             {
@@ -40,7 +40,7 @@ namespace Similarity.Comparison_Logic
                 if (!val2.ContainsKey(word.Key))
                 {
                     // Add its value and 0 to the result tuple (Val,0)
-                    result.Add(new Tuple<int, int>(word.Value, 0));
+                    result.Add(new Tuple<double, double>(word.Value, 0));
                 }
             }
             foreach (var word in val2)
@@ -49,12 +49,12 @@ namespace Similarity.Comparison_Logic
                 if (!val1.ContainsKey(word.Key))
                 {
                     // Add its value and 0 to the result tuple (0, Val)
-                    result.Add(new Tuple<int, int>(0, word.Value));
+                    result.Add(new Tuple<double, double>(0, word.Value));
                 }
                 else
                 {
                     //It exists in both val1 and val2 so add their values to the result (Val1, Val2)
-                    result.Add(new Tuple<int, int>(val1[word.Key], word.Value));
+                    result.Add(new Tuple<double, double>(val1[word.Key], word.Value));
                 }
             }
             return result;
@@ -65,7 +65,7 @@ namespace Similarity.Comparison_Logic
         /// </summary>
         /// <param name="values">The List of related values [{5,3}, {6,0}, {0,4}]</param>
         /// <returns>The Cossine Similarity between the two</returns>
-        private static Double CosineCoefficient(List<Tuple<int, int>> values)
+        private static Double CosineCoefficient(List<Tuple<double, double>> values)
         {
             double num = 0,
                    a = 0,
